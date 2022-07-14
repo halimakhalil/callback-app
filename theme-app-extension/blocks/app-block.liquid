@@ -1,0 +1,57 @@
+
+<button role="button" id="myBtn" style="color: {{ block.settings.myBtn }}; background-color:{{ block.settings.myBtn2 }};"> Call Back</button>
+
+<div hidden id ="callback_title"> {{ product.title}} </div>
+
+<!-- Modal -->
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+            </div>
+            <div class="modal-body">
+            <form id="contactForm">
+                <label>Name: <input type="text" name="name"></label>
+                <label>Contact Number: <input type="text" name="contact"></label>
+                <label>Query: <input type="text" name="query"></label>
+                <input type="hidden" name="url" id = "callback_url">
+
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" id="send">Send</button>
+            </div>
+            </form>
+          </div>
+        </div>
+    </div>
+</div>
+
+<style>
+#myBtn:hover
+{
+background-color:{{ block.settings.myBtn3 }} !important;
+
+}
+</style>
+
+
+
+
+{% schema %}
+  {
+    "name": "Hello World",
+    "target": "section",
+    "stylesheet": "app.css",
+    "javascript": "app.js",
+    "settings": [
+        { "label": "Font color", "id": "myBtn", "type": "color", "default": "#000000" },
+         { "label": "Background color", "id": "myBtn2", "type": "color", "default": "#DA4F2C" },
+         { "label": "Button hover", "id": "myBtn3", "type": "color", "default": "#5F270F" }
+    ]
+  }
+{% endschema %}
+
